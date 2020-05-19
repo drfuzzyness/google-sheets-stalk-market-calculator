@@ -2,23 +2,29 @@
  * A Google App Script to manage Animal Crossing New Horizon's Stalk Market predictions
  * 
  * @name google-sheets-stalk-market-calculator
- * @version 1.0.0
+ * @version 1.0.1
  * 
  * Logic stolen from Mike Bryant's excellent webapp translation of Treeki's reverse engineering of the Animal Crossing source code
  * 
  * @author Matthew Conto <https://github.com/drfuzzyness>
  * @author Jeffrey Hu <https://github.com/jyh947>
  * @author Jonathan Ames <>
+ * @author Mira Kim <https://github.com/miraqk>
+ *
+ * Additions:
+ * Constants in lns [17, 20, 23] modified for Mira's Template
+ * Term tweaked in ln 178: Random > Fluctuating
+ * Show/Hide rows added in lns [601-603, 672]
  */
 
 // Which sheets shouldn't be updated
-const BLACKLISTED_SHEET_NAMES = [ "Overview", "Summary", "Read Me", "Talk", "Testing"];
+const BLACKLISTED_SHEET_NAMES = [ "Flora", "Islands", "Raw Data", "Recipes", "Registry", "Search", "Wish List" ];
 
 // What range are the user's inputs located on each page?
-const USER_PRICE_ENTRY_RANGE = "B2:C8";
+const USER_PRICE_ENTRY_RANGE = "Z1:AA7";
 
 // How far down on each sheet should the results start appearing?
-const START_ROW_OF_RESULTS_TABLE = 14;
+const START_ROW_OF_RESULTS_TABLE = 28;
 
 // Algorithmic constants
 const MAX_NUM_OF_ENTRIES = 72;
@@ -173,7 +179,7 @@ function generatePatternZeroWithLengths(given_prices, high_phase_1_len, dec_phas
     });
   }
   return {
-    pattern_description: "Random",
+    pattern_description: "Fluctuating",
     pattern_number: 0,
     prices: predicted_prices
   };
@@ -595,6 +601,9 @@ function writePredictionsToSheet(predictions_array, sheet, startRow)
     const numRows = table_grid.length;
     
     sheet.getRange(startRow, 1, numRows, NUM_OF_COLUMNS).setValues(table_grid);
+    if(MAX_NUM_OF_ENTRIES - numRows > 0) {
+      sheet.hideRows(START_ROW_OF_RESULTS_TABLE + numRows, MAX_NUM_OF_ENTRIES - numRows);
+    }
   }
 }
 
@@ -663,6 +672,7 @@ function sheetTest()
 function clearProbabilities(sheet)
 {
   // Clear previous contents
+  sheet.showRows(START_ROW_OF_RESULTS_TABLE, MAX_NUM_OF_ENTRIES);
   sheet.getRange(START_ROW_OF_RESULTS_TABLE, 1, MAX_NUM_OF_ENTRIES, NUM_OF_COLUMNS).clear({contentsOnly: true});
 }
 
