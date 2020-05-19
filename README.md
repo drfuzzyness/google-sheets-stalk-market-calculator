@@ -6,7 +6,7 @@ A Google App Script to manage Animal Crossing New Horizon's Stalk Market predict
 
 Open and create your own copy of this Google Sheet.
 
-https://docs.google.com/spreadsheets/d/1EqQIjfD-WeDWVBNqk2I_CXjmZtGhTP7LbqZxCT5EAtM/copy
+https://docs.google.com/spreadsheets/d/1i0W3fhXt8N042dsRucaYv515eJLM65_j2xuRYNTOS-Y/copy
 
 If you have a friend group, you can invite them all as editors, then duplicate the default sheet for each friend to compare prices!
 
