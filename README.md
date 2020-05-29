@@ -5,14 +5,12 @@ A Google App Script to manage Animal Crossing New Horizon's Stalk Market predict
 ## Getting Started
 
 1. Open Google Sheets with one of the links below and create a copy.
-   a. Full Animal Crossing Google Sheet including: Turnip Tracker, Recipe Tracker, Item Registry, Flower Registry, and Island List
-      i. https://docs.google.com/spreadsheets/d/1i0W3fhXt8N042dsRucaYv515eJLM65_j2xuRYNTOS-Y/copy
-   b. Animal Crossing Google Sheet with only the Turnip Tracker.
-      i. https://docs.google.com/spreadsheets/d/1aR7Uk3Q0BaqagDwL40NPc1ygSnoagp_lxFSZ4Xo2uS0/copy
+   - [Full Animal Crossing Google Sheet](https://docs.google.com/spreadsheets/d/1i0W3fhXt8N042dsRucaYv515eJLM65_j2xuRYNTOS-Y/copy) including: Turnip Tracker, Recipe Tracker, Item Registry, Flower Registry, and Island List.
+   - [Animal Crossing Google Sheet](https://docs.google.com/spreadsheets/d/1aR7Uk3Q0BaqagDwL40NPc1ygSnoagp_lxFSZ4Xo2uS0/copy) with only the Turnip Tracker.
 
 2. There are two types of sheets:
-   a. The first **Turnips** can be duplicated as many times as needed to track as many islands as needed; in this fashion you can invite all your friends as editors and have them add in their data on their own sheet.
-   b. The second **Turnips (from External Sheet)** can also be duplicated; data for this can be auto-filled from external Google Sheets using `importrange`.
+   - The first **Turnips** can be duplicated as many times as needed to track as many islands as needed; in this fashion you can invite all your friends as editors and have them add in their data on their own sheet.
+   - The second **Turnips (from External Sheet)** can also be duplicated; data for this can be auto-filled from external Google Sheets using `importrange`.
 
 ## Editing the Script
 
