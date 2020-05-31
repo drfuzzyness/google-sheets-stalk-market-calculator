@@ -4,11 +4,13 @@ A Google App Script to manage Animal Crossing New Horizon's Stalk Market predict
 
 ## Getting Started
 
-Open and create your own copy of this Google Sheet.
+1. Open Google Sheets with one of the links below and create a copy.
+   - [Full Animal Crossing Google Sheet](https://docs.google.com/spreadsheets/d/1i0W3fhXt8N042dsRucaYv515eJLM65_j2xuRYNTOS-Y/copy) including: Turnip Tracker, Recipe Tracker, Item Registry, Flower Registry, and Island List.
+   - [Animal Crossing Google Sheet](https://docs.google.com/spreadsheets/d/1aR7Uk3Q0BaqagDwL40NPc1ygSnoagp_lxFSZ4Xo2uS0/copy) with only the Turnip Tracker.
 
-https://docs.google.com/spreadsheets/d/1EqQIjfD-WeDWVBNqk2I_CXjmZtGhTP7LbqZxCT5EAtM/copy
-
-If you have a friend group, you can invite them all as editors, then duplicate the default sheet for each friend to compare prices!
+2. There are two types of sheets:
+   - The first **Turnips** can be duplicated as many times as needed to track as many islands as needed; in this fashion you can invite all your friends as editors and have them add in their data on their own sheet.
+   - The second **Turnips (from External Sheet)** can also be duplicated; data for this can be auto-filled from external Google Sheets using `importrange`.
 
 ## Editing the Script
 
@@ -18,3 +20,4 @@ If you have a friend group, you can invite them all as editors, then duplicate t
 4. Another popup will ask which Google Account you want to link this script to. `Continue`.
 5. A very menacing page will explain that this script isn't verified through Google. To continue, click the tiny text `Advanced` near the bottom, then click `Go to Stalks (unsafe)`
 6. Finally, select `Allow`
+7. If you edit the sheets or want to change the layout, much of the defaults can be found in `Constants.gs`
