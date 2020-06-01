@@ -55,9 +55,9 @@ function writeForecastToSheet(predictions_array, sheet, startRow)
   }
 }
 
-function calculateOutput( data, last_pattern )
+function calculateOutput( data, first_buy, last_pattern )
 {
-  let predictor = new Predictor( data, false, last_pattern );
+  let predictor = new Predictor( data, first_buy, last_pattern );
   let possibilities = predictor.analyze_possibilities();
   return possibilities;
 }
@@ -67,6 +67,9 @@ function updateSheet(sheet)
   try
   {
     clearProbabilities(sheet);
+
+    // Get first buy
+    const first_buy = ( sheet.getRange( USER_FIRST_BUY ).getValue() == 'Yes' ) ? true: false;
 
     // Get the user's last pattern
     const last_pattern = PATTERN[ sheet.getRange( USER_PREVIOUS_PATTERN ).getValue().toString().toUpperCase().split( ' ' ).join( '_' ) ];
@@ -84,7 +87,7 @@ function updateSheet(sheet)
     if( sell_prices_captured.length > 0 )
     {
       const prices = [ buy_price, buy_price, ...sell_prices_sanitized ];
-      forecast = calculateOutput( prices, last_pattern );
+      forecast = calculateOutput( prices, first_buy, last_pattern );
 
       if( forecast[0].weekMax == '-Infinity' )
       {
@@ -103,7 +106,21 @@ function updateSheet(sheet)
   }
 }
 
-function onEdit(edit)
+function onOpen( open )
+{
+  const sheet = open.range.getSheet();
+  const sheetName = sheet.getName();
+
+  for( let i = 0; i < WHITELISTED_SHEET_PREFIX.length; i++ )
+  {
+    if( sheetName.startsWith( WHITELISTED_SHEET_PREFIX[i] ) )
+    {
+      updateSheet( sheet );
+    }
+  }
+}
+
+function onEdit( edit )
 {
   const sheet = edit.range.getSheet();
   const sheetName = sheet.getName();
@@ -117,7 +134,7 @@ function onEdit(edit)
   }
 }
 
-function clearProbabilities(sheet)
+function clearProbabilities( sheet )
 {
   // Clear previous error
   sheet.getRange( USER_ERROR_RANGE )
@@ -133,9 +150,9 @@ function clearProbabilities(sheet)
     .clear( {contentsOnly: true} );
 }
 
-function writeError(errorDescription, sheet)
+function writeError( errorDescription, sheet )
 {
-  clearProbabilities(sheet);
+  clearProbabilities( sheet );
 
   sheet.getRange( USER_ERROR_RANGE )
     .setBackground( USER_ERROR_ACTIVE_STYLE[ 'bgColor' ] )
