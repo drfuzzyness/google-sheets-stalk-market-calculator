@@ -17,9 +17,8 @@ const WHITELISTED_SHEET_PREFIX = [
 const USER_BUY_PRICE = 'B4';
 const USER_SELL_PRICE_RANGE = 'C4:N4';
 const USER_PREVIOUS_PATTERN = 'S3';
-
+const USER_FIRST_BUY = 'Y3';
 const USER_PRICE_ENTRY_RANGE = 'Z1:AA7';
-//const USER_PREVIOUS_PATTERN_RANGE = 'AB6';
 
 // How far down on each sheet should the results start appearing?
 const START_ROW_OF_RESULTS_TABLE = 27;
