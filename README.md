@@ -11,6 +11,10 @@ A Google App Script to manage Animal Crossing New Horizon's Stalk Market predict
 2. There are two types of sheets:
    - The first **Turnips** can be duplicated as many times as needed to track as many islands as needed; in this fashion you can invite all your friends as editors and have them add in their data on their own sheet.
    - The second **Turnips (from External Sheet)** can also be duplicated; data for this can be auto-filled from external Google Sheets using `importrange`.
+   
+3. To create a new sheet, you need to duplicate the existing sheet type you want, and rename it `Turnip {your name here}`. All sheets that don't start with the word `Turnip` (case sensitive) are ignored by this script.
+   - You can change this behaviour in the [`Constants.gs`](https://github.com/drfuzzyness/google-sheets-stalk-market-calculator/blob/9082a39dd635994b55a73ffad3d23927a142122a/Constants.gs#L12) script file of your spreadsheet copy.
+   - See _Editing the Script_ for how to edit that
 
 ## Editing the Script
 
